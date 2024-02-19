@@ -7,7 +7,7 @@ type UserProps = {
   params: {
     username: string;
   }
-}
+};
 
 export default async function User({ params: { username } }: UserProps) {
   const requestConfig = { headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}` } };
