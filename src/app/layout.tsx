@@ -1,4 +1,3 @@
-import { PrimeReactProvider } from 'primereact/api';
 import { ReduxProvider } from "@/redux/provider";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
@@ -20,9 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
-          <PrimeReactProvider>
-            {children}
-          </PrimeReactProvider>
+          {children}
         </ReduxProvider>
       </body>
     </html>
