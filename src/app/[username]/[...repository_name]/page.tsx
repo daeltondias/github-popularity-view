@@ -14,8 +14,8 @@ type RepositoryProps = {
 export default async function Repository({ params }: RepositoryProps) {
   const { username, repository_name } = params;
   const full_name = [username, ...repository_name].join('/');
-  const requestConfig = { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }; 
-  const repoResponse = await fetch(`${process.env.GITHUB_API}/repos/${full_name}`, requestConfig);
+  const requestConfig = { headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}` } }; 
+  const repoResponse = await fetch(`${process.env.NEXT_PUBLIC_GITHUB_API}/repos/${full_name}`, requestConfig);
   const repo: RepositoryType = await repoResponse.json();
 
   if (!repo.name) redirect('/');

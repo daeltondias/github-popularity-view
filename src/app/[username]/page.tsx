@@ -10,9 +10,9 @@ type UserProps = {
 }
 
 export default async function User({ params: { username } }: UserProps) {
-  const requestConfig = { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } };
-  const repoResponse = await fetch(`${process.env.GITHUB_API}/users/${username}/repos`, requestConfig);
-  const userResponse = await fetch(`${process.env.GITHUB_API}/users/${username}`, requestConfig);
+  const requestConfig = { headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}` } };
+  const repoResponse = await fetch(`${process.env.NEXT_PUBLIC_GITHUB_API}/users/${username}/repos`, requestConfig);
+  const userResponse = await fetch(`${process.env.NEXT_PUBLIC_GITHUB_API}/users/${username}`, requestConfig);
   const repos: RepositoryType[] = await repoResponse.json();
   const user: GithubUserType = await userResponse.json();
 
